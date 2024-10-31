@@ -216,14 +216,6 @@ L'abstraction s'applique aux classes et aux méthodes :
 - Une classe abstraite ne peut pas être instanciée directement
 - Une méthode abstraite n'a pas d'implémentation dans la classe où elle est définie
 
-### Implémentation pratique
-
-Le cours propose des exercices pour appliquer ces concepts au projet Epicraft's Journey :
-
-1. Modifier la classe `Bloc` pour la rendre abstraite
-2. Créer une classe `Mur` héritant de `Bloc`
-3. Créer une classe `Porte` héritant de `Bloc`
-
 ## Interfaces
 
 Les interfaces permettent d'appliquer des contrats aux classes :
@@ -313,13 +305,6 @@ quantiteBloc.put(new Porte(1,1,1,false), 1);
 - `get()` : Récupère un élément (par index pour List, par clé pour Map)
 - `contains()` : Vérifie la présence d'un élément
 
-### Application au projet Epicrafter's Journey
-
-Pour implémenter la classe Kit, on peut utiliser :
-
-- Une List pour gérer les blocs
-- Un Set pour les mots-clés
-
 ```java
 public class Kit {
     private List<Bloc> blocs;
@@ -350,7 +335,7 @@ try {
 }
 ```
 
-Cette structure permet d'anticiper les erreurs potentielles et d'y répondre de manière appropriée, améliorant ainsi l'expérience utilisateur[1].
+Cette structure permet d'anticiper les erreurs potentielles et d'y répondre de manière appropriée, améliorant ainsi l'expérience utilisateur.
 
 ### Levée d'exceptions
 
