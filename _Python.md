@@ -725,10 +725,3 @@ resultats = cursor.fetchall()
 conn.close()
 ```
 
-## Bonnes pratiques
-
-1. Utilisez des gestionnaires de contexte (`with`) pour les fichiers
-2. Gérez les exceptions lors de la lecture des fichiers
-3. Vérifiez l'intégrité des données après le chargement
-4. Utilisez des bibliothèques spécialisées pour des formats spécifiques
-5. Considérez la performance pour les grands ensembles de données
