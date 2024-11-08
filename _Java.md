@@ -221,11 +221,11 @@ L'abstraction s'applique aux classes et aux méthodes :
 Les interfaces permettent d'appliquer des contrats aux classes :
 
 - Définies avec le mot-clé `interface`
-- Peuvent contenir des constantes (variables `public`, `static` et `final`)
+- Peuvent contenir que des constantes : `public`, `static` et `final`.
 - Contiennent des signatures de méthodes sans implémentation
 - Les classes implémentent les interfaces avec le mot-clé `implements`
-
-L'interface `IBloc` est créée pour contraindre les blocs à implémenter une méthode `afficherDescription()`.
+- Une interface n'est pas une classe, par défaut chaque méthode est 'Public' et 'Abstract'
+- Elle sert à donner les méthodes donc nous avons besoin
 
 ### Injection de dépendances
 
@@ -233,7 +233,6 @@ Cette technique permet de réduire le couplage entre les classes :
 
 - La classe dépendante utilise une interface plutôt qu'une classe concrète
 - La dépendance est fournie via le constructeur ou un mutateur
-- Exemple : la classe `Rempart` dépend de l'interface `IBloc` au lieu de la classe `Bloc`
 
 ### Records
 
@@ -365,4 +364,21 @@ Certaines exceptions doivent être déclarées dans la signature de la méthode 
 public void methode() throws IllegalBlocException {
     // Code pouvant lever IllegalBlocException
 }
+```
+
+## Javadoc
+
+Javadoc est un outil utilisé pour générer de la documentation API en HTML à partir de commentaires dans le code source Java. Les commentaires Javadoc sont écrits entre `/** ... */` et peuvent inclure des balises spéciales pour décrire les classes, méthodes, et champs.
+
+- Gestion des versions : Permet de suivre l'historique des modifications et de revenir à des versions antérieures.
+
+- Collaboration : Facilite le travail en équipe en permettant à plusieurs développeurs de travailler sur le même projet simultanément.
+
+### Généré un Javadoc
+```bash
+javadoc -d doc -sourcepath ['$dir -> src'] -subpackages ['package']
+```
+exemple : 
+```bash 
+javadoc -d doc -sourcepath Project02Eclipse/src/ -subpackages com.hemebiotech.analytics
 ```
