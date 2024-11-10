@@ -235,3 +235,70 @@ Fusionne la branche du dépôt dans la branche locale courante.
  git push [alias] [branche]
 ```
 Envoie tous les commits de la branche locale vers GitHub.
+
+## Git Rebase
+
+`git rebase` est une commande puissante qui permet de réorganiser l'historique des commits. Voici un aperçu de son utilisation :
+
+### Utilisation de base
+
+```bash
+git rebase <base>
+```
+
+Cette commande prend les commits de la branche courante et les réapplique sur le sommet de la branche `<base>`.
+
+### Rebase interactif
+
+```bash
+git rebase -i <base>
+```
+
+Le mode interactif permet de modifier les commits pendant le rebase. Vous pouvez :
+
+- Réorganiser l'ordre des commits
+- Supprimer des commits
+- Fusionner plusieurs commits
+- Modifier les messages de commit
+
+#### Argument de rebase 
+
+Chaque ligne dans l'éditeur représente un commit et commence par une commande (par défaut "pick"). Vous pouvez changer ces commandes pour modifier l'historique :
+
+- `pick` : utiliser le commit tel quel
+- `reword` : modifier le message du commit
+- `edit` : modifier le contenu du commit
+- `squash` : fusionner le commit avec le précédent
+- `fixup` : comme squash, mais en ignorant le message de commit
+- `drop` : supprimer le commit
+
+Après avoir modifié et sauvegardé le fichier, Git appliquera vos changements.
+
+### Cas d'utilisation courants
+
+1. **Nettoyer l'historique** : Fusionner plusieurs petits commits en un seul plus significatif.
+2. **Intégrer les derniers changements** : Mettre à jour une branche de fonctionnalité avec les derniers changements de la branche principale.
+3. **Résoudre les conflits** : Gérer les conflits commit par commit plutôt qu'en une seule fois.
+
+### Précautions
+
+- Ne jamais rebase des commits qui ont déjà été poussés sur un dépôt public.
+- Toujours créer une sauvegarde (branche) avant de commencer un rebase.
+
+### Résolution des conflits
+
+Si des conflits surviennent pendant le rebase :
+
+1. Résolvez les conflits manuellement.
+2. Ajoutez les fichiers résolus avec `git add`.
+3. Continuez le rebase avec `git rebase --continue`.
+
+### Annuler un rebase
+
+Si quelque chose se passe mal, vous pouvez annuler le rebase :
+
+```bash
+git rebase --abort
+```
+
+Cette commande restaure l'état de votre branche avant le début du rebase.
